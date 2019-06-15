@@ -12,7 +12,10 @@
 	
 	<modules>
 		<module>core</module>
-		<module>ten</module>
+		<module>onetofour</module>
+		<module>fivetoeight</module>
+		<module>ninetotwelve</module>
+		<module>other</module>
 	</modules>
 
 </project>
