@@ -3,7 +3,7 @@ package com.revature.effective.enums;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class Calculator<T> { // Notice T is never used... Left here to highlight that
+public class GenericCalculator<T> { // Notice T is never used... Left here to highlight that
 
 	public final static String CALCULATOR		    = "---- CALCULATOR METH OF TYPE [%s]";
 	public final static String CALCULATOR_OPERATION = "----  OPERATION ENUM OF TYPE [%s]";
@@ -25,33 +25,42 @@ public class Calculator<T> { // Notice T is never used... Left here to highlight
 	}
 	
 	public static enum Operation {
-		PLUS {
+		PLUS(" + ") {
 			@Override
 			public <N extends Number> Number apply(N x, N y) {
 				return x.doubleValue() + y.doubleValue();
 			}
 		},
-		MINUS {
+		MINUS(" - ") {
 			@Override
 			public <N extends Number> Number apply(N x, N y) {
 				return x.doubleValue() - y.doubleValue();
 			}
 			
 		},
-		DIVIDE {
+		DIVIDE(" / ") {
 			@Override
 			public <N extends Number> Number apply(N x, N y) {
 				return x.doubleValue() / y.doubleValue();
 			}
 		},
-		MULTIPLY {
+		MULTIPLY(" * ") {
 			@Override
 			public <N extends Number> Number apply(N x, N y) {
 				return x.doubleValue() * y.doubleValue();
 			}
 		};
 		
+		private final String symbol;
+		
+		Operation(String symbol) { 
+			this.symbol = symbol; 
+		}
+		
+		@Override public String toString() { 
+			return symbol; 
+		}
+		
 		public abstract <N extends Number> Number apply(N x, N y);
-
 	}
 }
