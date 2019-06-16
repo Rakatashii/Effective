@@ -1,12 +1,12 @@
-package com.revature.effective.enums;
+package com.revature.effective.calculate;
 
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class GenericCalculator<T> { // Notice T is never used... Left here to highlight that
+public class GenericCalculatorEnum<T> { // Notice T is never used... Left here to highlight that
 
-	public final static String CALCULATOR		    = "---- CALCULATOR METH OF TYPE [%s]";
-	public final static String CALCULATOR_OPERATION = "----  OPERATION ENUM OF TYPE [%s]";
+	public final static String CALCULATOR		    = "---- CALCULATOR METH : TYPE - [%s]";
+	public final static String CALCULATOR_OPERATION = "---- OPERATION ENUM  : TYPE - [%s]";
 	
 	public <N extends Number> Number add(N x, N y) {
 		return Operation.PLUS.apply(x, y);
@@ -57,10 +57,12 @@ public class GenericCalculator<T> { // Notice T is never used... Left here to hi
 			this.symbol = symbol; 
 		}
 		
-		@Override public String toString() { 
-			return symbol; 
-		}
-		
 		public abstract <N extends Number> Number apply(N x, N y);
+
+		
+		public String getSymbol() {
+			return this.symbol;
+		}
+
 	}
 }
