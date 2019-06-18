@@ -8,6 +8,8 @@ public class Calculator<T> { // T is not used.. just highlighting that
 	public final static String CALCULATOR		    = "---- CALCULATOR METH : TYPE - [%s]";
 	public final static String CALCULATOR_OPERATION = "---- OPERATION ENUM  : TYPE - [%s]";
 	
+	// Not a true need for generics - Number abstract alone would be better anyway
+	
 	public <N extends Number> Number add(N x, N y) {
 		return Operation.PLUS.apply(x, y);
 	}
