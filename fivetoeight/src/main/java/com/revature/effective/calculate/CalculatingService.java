@@ -17,23 +17,23 @@ import org.springframework.stereotype.Component;
 @Component
 public class CalculatingService {
 	
-	@Autowired GenericCalculatorEnum<? extends Number> calculatorInstance;
+	@Autowired Calculator<? extends Number> calculatorInstance;
 	
-	Set<GenericCalculatorEnum.Operation> OPERATION_SET;
-	Map<GenericCalculatorEnum.Operation, String> innerBitMap = new HashMap<>();
-	EnumMap<GenericCalculatorEnum.Operation, String> OPERATION_MAP; 
+	Set<Calculator.Operation> OPERATION_SET;
+	Map<Calculator.Operation, String> innerBitMap = new HashMap<>();
+	EnumMap<Calculator.Operation, String> OPERATION_MAP; 
 	
 	public void initializeVariables() {
 		
-		OPERATION_SET = EnumSet.allOf(GenericCalculatorEnum.Operation.class);
+		OPERATION_SET = EnumSet.allOf(Calculator.Operation.class);
 		
-		OPERATION_SET.addAll(Arrays.asList(GenericCalculatorEnum.Operation.values()));
+		OPERATION_SET.addAll(Arrays.asList(Calculator.Operation.values()));
 
 		OPERATION_SET.forEach(operation -> {
 			innerBitMap.put(operation, operation.getSymbol());
 		});
 		
-		OPERATION_MAP = new EnumMap<GenericCalculatorEnum.Operation, String> (
+		OPERATION_MAP = new EnumMap<Calculator.Operation, String> (
 			innerBitMap = OPERATION_SET.stream()
 				.collect(Collectors.toMap(
 						Function.identity(), 
@@ -68,16 +68,16 @@ public class CalculatingService {
 	public void calculateWithClass() {
 		if (!numbers.isEmpty()) numbers.forEach(pair -> {	
 			try {		
-				System.out.println(String.format(GenericCalculatorEnum.CALCULATOR_OPERATION, 
+				System.out.println(String.format(Calculator.CALCULATOR_OPERATION, 
 					((Class<? extends Number>) pair.left.getClass()).getName()));
-				System.out.println(pair.left + GenericCalculatorEnum.Operation.PLUS.getSymbol() + pair.right + 
-					" = " + GenericCalculatorEnum.Operation.PLUS.apply(pair.left, pair.right));
-				System.out.println(pair.left + GenericCalculatorEnum.Operation.MINUS.getSymbol() + pair.right + 
-					" = " + GenericCalculatorEnum.Operation.MINUS.apply(pair.left, pair.right));
-				System.out.println(pair.left + GenericCalculatorEnum.Operation.DIVIDE.getSymbol()  + pair.right + 
-					" = " + GenericCalculatorEnum.Operation.DIVIDE.apply(pair.left, pair.right));
-				System.out.println(pair.left + GenericCalculatorEnum.Operation.MULTIPLY.getSymbol() + pair.right + 
-					" = " + GenericCalculatorEnum.Operation.MULTIPLY.apply(pair.left, pair.right));
+				System.out.println(pair.left + Calculator.Operation.PLUS.getSymbol() + pair.right + 
+					" = " + Calculator.Operation.PLUS.apply(pair.left, pair.right));
+				System.out.println(pair.left + Calculator.Operation.MINUS.getSymbol() + pair.right + 
+					" = " + Calculator.Operation.MINUS.apply(pair.left, pair.right));
+				System.out.println(pair.left + Calculator.Operation.DIVIDE.getSymbol()  + pair.right + 
+					" = " + Calculator.Operation.DIVIDE.apply(pair.left, pair.right));
+				System.out.println(pair.left + Calculator.Operation.MULTIPLY.getSymbol() + pair.right + 
+					" = " + Calculator.Operation.MULTIPLY.apply(pair.left, pair.right));
 				System.out.println();
 			} catch (Throwable t) {
 				t.printStackTrace();
@@ -87,7 +87,7 @@ public class CalculatingService {
 	
 	public void calculateWithEnumSet() {
 		if (!numbers.isEmpty()) numbers.forEach(pair -> {	
-			System.out.println(String.format(GenericCalculatorEnum.CALCULATOR, 
+			System.out.println(String.format(Calculator.CALCULATOR, 
 				pair.getKey().getClass().toString().split(" ")[1]));
 			OPERATION_SET.forEach(operation -> {
 				try {
@@ -98,6 +98,15 @@ public class CalculatingService {
 				}
 			});
 			System.out.println();
+		});
+	}
+	
+	public void calculateWithLambdas() {
+		if (!numbers.isEmpty()) numbers.forEach(pair -> {
+			System.out.println(String.format(CalculatorWithLambda.CALCULATOR_L, 
+					pair.getKey().getClass().toString().split(" ")[1]));
+			System.out.println(pair.left + CalculatorWithLambda.Operation.PLUS.getSymbol() + pair.right 
+				+ " = " + CalculatorWithLambda.Operation.PLUS.apply(pair.left, pair.right) + "\n");
 		});
 	}
 }

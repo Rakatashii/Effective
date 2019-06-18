@@ -3,7 +3,7 @@ package com.revature.effective.calculate;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class GenericCalculatorEnum<T> { // Notice T is never used... Left here to highlight that
+public class Calculator<T> { // T is not used.. just highlighting that
 
 	public final static String CALCULATOR		    = "---- CALCULATOR METH : TYPE - [%s]";
 	public final static String CALCULATOR_OPERATION = "---- OPERATION ENUM  : TYPE - [%s]";

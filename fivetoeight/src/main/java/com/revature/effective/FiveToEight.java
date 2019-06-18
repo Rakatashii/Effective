@@ -22,5 +22,6 @@ public class FiveToEight implements CommandLineRunner {
 		calculatingService.printEnumMapDetails();
 		calculatingService.calculateWithClass();
 		calculatingService.calculateWithEnumSet();
+		calculatingService.calculateWithLambdas();
 	}
 }
