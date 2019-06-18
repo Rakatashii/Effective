@@ -7,7 +7,7 @@
 	<groupId>com.revature</groupId>
 	<artifactId>effective</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
-	<name>alleffective</name>
+	<name>effective</name>
 	<packaging>pom</packaging>
 	
 	<modules>

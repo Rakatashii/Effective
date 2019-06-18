@@ -4,7 +4,7 @@ import java.util.function.BinaryOperator;
 
 public class CalculatorWithLambda {
 
-	public final static String CALCULATOR_L		    = "---- CALCULATOR LAMBDA : TYPE - [%s]";
+	public final static String CALCULATOR_L	= "---- CALCULATOR LAMBDA : TYPE - [%s]";
 	
 	public static enum Operation {
 		PLUS(" + ", (x, y) -> (x + y)),
