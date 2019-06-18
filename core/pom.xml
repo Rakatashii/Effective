@@ -10,7 +10,7 @@
 		<relativePath />
 	</parent>
 
-	<groupId>com.revature.effective</groupId>
+	<groupId>com.revature</groupId>
 	<artifactId>core</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
