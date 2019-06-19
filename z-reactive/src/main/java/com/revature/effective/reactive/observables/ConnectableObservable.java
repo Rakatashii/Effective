@@ -2,7 +2,6 @@ package com.revature.effective.reactive.observables;
 
 import org.reactivestreams.Subscription;
 
-import io.reactivex.Observer;
 import reactor.core.publisher.BaseSubscriber;
 import reactor.core.publisher.ConnectableFlux;
 import reactor.core.publisher.Flux;

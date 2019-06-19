@@ -1,14 +1,9 @@
 package com.revature.effective.reactive.basic_operators;
 
-import java.lang.reflect.ParameterizedType;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
-
-import org.springframework.core.ParameterizedTypeReference;
-
-import com.fasterxml.jackson.core.type.TypeReference;
 
 import io.reactivex.Observable;
 import io.reactivex.Single;

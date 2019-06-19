@@ -1,6 +1,5 @@
 package com.revature.effective.reactive.basic_operators;
 
-import java.time.Instant;
 import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Observable;

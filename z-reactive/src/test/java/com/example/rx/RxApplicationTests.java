@@ -2,19 +2,14 @@ package com.example.rx;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.function.Supplier;
-
 import org.junit.Test;
 
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.util.function.SupplierUtils;
-
 import com.revature.effective.reactive.transformation_operators.MapAndFlatMap;
 import com.revature.effective.reactive.transformation_operators.MapAndFlatMap.User;
 
-import io.reactivex.schedulers.Schedulers;
 import reactor.core.publisher.Flux;
 import reactor.test.StepVerifier;
 import reactor.test.StepVerifierOptions;
