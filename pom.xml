@@ -12,6 +12,7 @@
 	
 	<modules>
 		<module>core</module>
+		<module>reactive</module>
 		<module>onetofour</module>
 		<module>fivetoeight</module>
 		<module>ninetotwelve</module>
