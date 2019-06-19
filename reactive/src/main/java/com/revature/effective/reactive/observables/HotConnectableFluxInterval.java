@@ -2,8 +2,6 @@ package com.revature.effective.reactive.observables;
 
 import java.time.Duration;
 
-import org.reactivestreams.Subscriber;
-
 import reactor.core.publisher.ConnectableFlux;
 import reactor.core.publisher.Flux;
 

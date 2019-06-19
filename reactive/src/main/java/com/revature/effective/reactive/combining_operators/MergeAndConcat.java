@@ -1,11 +1,8 @@
 package com.revature.effective.reactive.combining_operators;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
-
-import org.springframework.util.comparator.ComparableComparator;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
