@@ -11,8 +11,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.util.function.SupplierUtils;
 
-import com.example.transformation_operators.MapAndFlatMap;
-import com.example.transformation_operators.MapAndFlatMap.User;
+import com.revature.effective.reactive.transformation_operators.MapAndFlatMap;
+import com.revature.effective.reactive.transformation_operators.MapAndFlatMap.User;
 
 import io.reactivex.schedulers.Schedulers;
 import reactor.core.publisher.Flux;
