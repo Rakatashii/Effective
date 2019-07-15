@@ -12,11 +12,12 @@
 	
 	<modules>
 		<module>core</module>
-		<module>reactive</module>
+		<module>test</module>
 		<module>onetofour</module>
 		<module>fivetoeight</module>
 		<module>ninetotwelve</module>
-		<module>other</module>
+		<module>reactive</module>
+		<module>cip</module>
 	</modules>
 
 </project>
