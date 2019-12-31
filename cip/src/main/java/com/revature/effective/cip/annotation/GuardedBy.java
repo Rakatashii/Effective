@@ -6,15 +6,14 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import org.springframework.context.annotation.Configuration;
-
-/** 
- * Marks an Object Type, Constructor, Field, Local Variable, or Method as Thread-Safe. 
+/** <pre>
+ * References the lock that guard's the monitor of a local-object or field.
+ * </pre>
+ * @author Revature
  */
-@Configuration
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
-@Target(value = {ElementType.TYPE, ElementType.CONSTRUCTOR, ElementType.FIELD, ElementType.LOCAL_VARIABLE, ElementType.METHOD})
+@Target(value = {ElementType.FIELD, ElementType.LOCAL_VARIABLE})
 public @interface GuardedBy {
-	String lock() default "";
+	String lock() default "Ambiguous Lock";
 }

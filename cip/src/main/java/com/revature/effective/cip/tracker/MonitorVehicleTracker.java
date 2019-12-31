@@ -9,6 +9,7 @@ import com.revature.effective.cip.annotation.ThreadSafe;
 
 @ThreadSafe
 public class MonitorVehicleTracker {
+	
 	@GuardedBy(lock = "this") 
 	private final Map<String, MutablePoint> locations;
 	

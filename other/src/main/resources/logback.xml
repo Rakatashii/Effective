@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="true">
+<!--    <includes>
+    <include resource="/logback-spring.xml" />
+    </includes> -->
+    <property name="LOG_HOME" value="/log/logmon" />
+    
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy/MM/dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender> 
+     <conversionRule conversionWord="syslogStart" converterClass="ch.qos.logback.classic.pattern.SyslogStartConverter" />
+ 
+<!-- 	<appender name="stash" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+      <destination>localhost:5090</destination>
+        &lt;!&ndash; encoder is required &ndash;&gt;
+      <encoder class="net.logstash.logback.encoder.LogstashEncoder" >
+        <prefix class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+            <layout class="ch.qos.logback.classic.PatternLayout">
+               <pattern>%syslogStart{USER}</pattern>
+            </layout>
+        </prefix>
+      </encoder>
+  </appender>-->
+    <!-- <appender name="FILE_ERROR" class="ch.qos.logback.core.FileAppender">
+        <file>${LOG_HOME}/error.log</file>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_HOME}/archived/error.%d{yyyy-MM-dd}.%i.log
+            </fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy
+                class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyy/MM/dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} -
+                %msg%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="FILE_WARN" class="ch.qos.logback.core.FileAppender">
+        <file>${LOG_HOME}/warn.log</file>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>WARN</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_HOME}/archived/warn.%d{yyyy-MM-dd}.%i.log
+            </fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy
+                class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyy/MM/dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} -
+                %msg%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="FILE_INFO" class="ch.qos.logback.core.FileAppender">
+        <file>${LOG_HOME}/info.log</file>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>INFO</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            rollover daily
+            <fileNamePattern>${LOG_HOME}/archived/info.%d{yyyy-MM-dd}.%i.log
+            </fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy
+                class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyy/MM/dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} -
+                %msg%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="FILE_TRACE" class="ch.qos.logback.core.FileAppender">
+        <file>${LOG_HOME}/trace.log</file>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>TRACE</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            rollover daily
+            <fileNamePattern>${LOG_HOME}/archived/trace.%d{yyyy-MM-dd}.%i.log
+            </fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy
+                class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyy/MM/dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} -
+                %msg%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="FILE_DEBUG" class="ch.qos.logback.core.FileAppender">
+        <file>${LOG_HOME}/debug.log</file>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>DEBUG</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            rollover daily
+            <fileNamePattern>${LOG_HOME}/archived/debug.%d{yyyy-MM-dd}.%i.log
+            </fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy
+                class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyy/MM/dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} -
+                %msg%n</pattern>
+        </encoder>
+    </appender> -->
+     <appender name="aiAppender" 
+        class="com.revature.effective.config.AppInsightsAppender">
+        <encoder>
+        	<pattern></pattern>
+        </encoder>
+    </appender>
+    
+<!--<logger name="org.springframework.web" level="INFO" additivity="false">
+        <appender-ref ref="FILE_WARN" />
+        <appender-ref ref="FILE_TRACE" />
+        <appender-ref ref="FILE_DEBUG" />
+        <appender-ref ref="FILE_INFO" />
+        <appender-ref ref="FILE_ERROR" />
+        <appender-ref ref="STDOUT" />
+        <appender-ref ref="aiAppender" />
+    </logger> -->
+<!--<logger name="com.sams.membership.nextgen" level="ERROR"
+        additivity="false">
+        <appender-ref ref="FILE_WARN" />
+        <appender-ref ref="FILE_TRACE" />
+        <appender-ref ref="FILE_DEBUG" />
+        <appender-ref ref="FILE_INFO" />
+        <appender-ref ref="FILE_ERROR" />
+        <appender-ref ref="stash" />
+    </logger> -->
+    
+    <root level="DEBUG">
+        <appender-ref ref="STDOUT" />
+    </root>
+    <springProfile name="dev">
+        <root level="ERROR">
+            <appender-ref ref="STDOUT" />
+            <appender-ref ref="aiAppender" />
+        </root>
+    </springProfile>
+    
+    <springProfile name="dev">
+        <root level="INFO">
+        <!-- <appender-ref ref="STDOUT" /> -->
+            <appender-ref ref="aiAppender" />
+        </root>
+    </springProfile>
+
+    <springProfile name="stg">
+        <root level="INFO">
+            <appender-ref ref="aiAppender" />
+        </root>
+    </springProfile>
+
+    <springProfile name="stg">
+        <root level="ERROR">
+            <appender-ref ref="STDOUT" />
+            <appender-ref ref="aiAppender" />
+        </root>
+    </springProfile>
+
+    <springProfile name="prod">
+        <root level="INFO">
+            <appender-ref ref="aiAppender" />
+        </root>
+    </springProfile>
+
+    <springProfile name="prod">
+        <root level="ERROR">
+            <appender-ref ref="aiAppender" />
+        </root>
+    </springProfile>
+
+    <springProfile name="default">
+        <root level="ERROR">
+            <appender-ref ref="STDOUT" />
+            <appender-ref ref="aiAppender" />
+        </root>
+    </springProfile>
+    
+    <springProfile name="default">
+        <root level="INFO">
+            <!-- <appender-ref ref="STDOUT" /> -->
+            <appender-ref ref="aiAppender" />
+        </root>
+    </springProfile>
+    
+</configuration>
